@@ -1,2 +1,2 @@
 # sMriti
-Automated Ai helthcare Model
+Automated Ai healthcare Model
