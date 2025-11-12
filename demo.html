@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule sMriti Demo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css"> 
+</head>
+<body>
+
+    <header class="header">
+        <div class="container header-content">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 0.5rem;">
+                    <span class="logo-text text-accent">sMriti</span>
+                    <span class="ai-badge">AI</span>
+                </a>
+            </div>
+            <a href="index.html" style="color: #4b5563; text-decoration: none; font-weight: 500;">
+                &larr; Back to Home
+            </a>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container form-wrapper">
+            <div class="form-card">
+                <h2 class="form-title">
+                    Automated Call Configuration
+                </h2>
+                <p class="form-subtitle">
+                    Set up a mock call scenario to experience how sMriti works.
+                </p>
+
+                <form id="demoForm">
+
+                    <fieldset class="form-group-section">
+                        <legend class="form-legend">Patient Information</legend>
+                        <div class="form-field">
+                            <label for="patientName" class="form-label">Patient Name</label>
+                            <input type="text" id="patientName" required class="form-input" placeholder="Patient's Full Name">
+                        </div>
+                        <div class="form-field">
+                            <label for="patientPhone" class="form-label">Patient Phone Number</label>
+                            <input type="tel" id="patientPhone" required class="form-input" placeholder="(555) 555-0123">
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="form-group-section">
+                        <legend class="form-legend">Medication & Schedule</legend>
+                        <div class="form-field">
+                            <label for="medicineName" class="form-label">Medicine Name</label>
+                            <input type="text" id="medicineName" required class="form-input" placeholder="e.g., Blood Pressure Rx">
+                        </div>
+                        <div class="form-field">
+                            <label for="scheduleCall" class="form-label">Schedule Call Time</label>
+                            <input type="time" id="scheduleCall" required class="form-input">
+                        </div>
+                    </fieldset>
+                    
+                    <fieldset class="form-group-section">
+                        <legend class="form-legend">Caregiver Information</legend>
+                        <div class="form-field">
+                            <label for="caregiverName" class="form-label">Caregiver Name</label>
+                            <input type="text" id="caregiverName" required class="form-input" placeholder="Caregiver's Full Name">
+                        </div>
+                        <div class="form-field">
+                            <label for="caregiverPhone" class="form-label">Caregiver Phone Number</label>
+                            <input type="tel" id="caregiverPhone" required class="form-input" placeholder="(555) 555-4567">
+                        </div>
+                    </fieldset>
+                    
+                    <button type="submit" class="btn-submit">
+                        Initiate Mock Automated Call
+                    </button>
+                    
+                    <div id="confirmationMessage" class="confirmation-message bg-green-light border-green text-green hidden">
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">&copy; 2025 sMriti AI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('demoForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const patientName = document.getElementById('patientName').value;
+            const medicineName = document.getElementById('medicineName').value;
+            const scheduleCall = document.getElementById('scheduleCall').value;
+
+            // Display confirmation message 
+            console.log("--- Mock Call Scheduled ---");
+            console.log(`Patient: ${patientName}, Medicine: ${medicineName}, Time: ${scheduleCall}`);
+            
+
+            const confirmationDiv = document.getElementById('confirmationMessage');
+            confirmationDiv.innerHTML = `Mock call for <strong>${patientName}</strong> regarding <strong>${medicineName}</strong> scheduled for <strong>${scheduleCall}</strong>. The AI will simulate the call soon!`;
+            confirmationDiv.classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>
